@@ -11,8 +11,8 @@ class AdminUserController {
 			return
 		}
 
-		User user = userService.createUser(command.properties + [selectedAutomatonServer: userService.currentUser.selectedAutomatonServer])
-		flash.success = message(code: 'default.created.message', args: [message(code: 'user.label'), user.id])
+		new User(firstName: command.firstName).save()
+		flash.success = message(code: 'default.created.message')
 		redirect action: 'list'
 	}
 
@@ -21,15 +21,8 @@ class AdminUserController {
 
 class UserCommand implements Validateable{
 	String firstName
-	String lastName
-	String username
-	String password
-	boolean enabled
 
 	static constraints = {
 		firstName shared: 'nonNullableString'
-		lastName shared: 'nonNullableString'
-		username shared: 'nonNullableEmail'
-		password shared: 'nullableString'
 	}
 }
