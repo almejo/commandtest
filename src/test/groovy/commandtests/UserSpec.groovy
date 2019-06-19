@@ -1,14 +1,11 @@
 package commandtests
 
-
-import grails.test.mixin.Mock
-import grails.test.mixin.TestFor
+import grails.testing.gorm.DomainUnitTest
 import org.apache.commons.lang.RandomStringUtils
 import spock.lang.Specification
 
-@TestFor(User)
-@Mock([])
-class UserSpec extends Specification {
+
+class UserSpec extends Specification implements DomainUnitTest<User>{
 	@SuppressWarnings("GroovyAssignabilityCheck")
 	void testConstraints() {
 		when:

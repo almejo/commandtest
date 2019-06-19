@@ -1,13 +1,10 @@
 package commandtests
 
-import grails.test.mixin.Mock
-import grails.test.mixin.TestFor
+import grails.testing.web.controllers.ControllerUnitTest
 import org.apache.commons.lang.RandomStringUtils
 import spock.lang.Specification
 
-@TestFor(AdminUserController)
-@Mock([User])
-class AdminUserControllerSpec extends Specification {
+class AdminUserControllerSpec extends Specification implements ControllerUnitTest<AdminUserController> {
 
 	void testUserCommand() {
 		when:
