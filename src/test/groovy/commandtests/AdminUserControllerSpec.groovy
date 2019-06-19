@@ -29,7 +29,6 @@ class AdminUserControllerSpec extends Specification {
 		when:
 		command = new UserCommand(
 				firstName: RandomStringUtils.randomAlphabetic(10)
-				, lastName: RandomStringUtils.randomAlphabetic(10)
 		)
 
 		then:
